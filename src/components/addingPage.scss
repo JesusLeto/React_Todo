@@ -1,0 +1,58 @@
+.addingPage{
+    position: absolute;
+    width: 235px;
+    height: 148px;
+    top: 353px;
+    left: 28px;
+    border-radius: 10px;
+    background: #FFFFFF;
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.05);
+    padding: 18px 17px 15px 17px;
+
+    input{
+        width: 200px;
+        height: 32px;
+        border-radius: 4px;
+        border: 1px solid #EFEFEF;
+        padding: 7px;
+        font-size: 14px;
+        margin-bottom: 13px
+    }
+    .color-block{
+        height: 20px;
+        margin: auto;
+        margin-bottom: 13px;
+        &-choise{
+            display: inline-block;
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            background-color: blue;
+            margin: 2.5px;
+            cursor: pointer;
+           
+        }
+        
+    }
+    .addBTN{
+        width: 200px;
+        height: 37px;
+        background-color: #4DD599;
+        color: white;
+        font-size: 17px;
+        text-align: center;
+        padding: 9px;
+        border-radius: 4px;
+        border: none;
+        cursor: pointer;
+    }
+
+    .closeBTN{
+        position: absolute;
+        top: -6px;
+        right: -6px;
+        cursor: pointer;
+        
+    }
+}
+

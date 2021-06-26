@@ -1,12 +1,15 @@
 import React from 'react';
 
 const ThemeList = ({Tasking}) => {
+
     return(
-        <ul className = "ThemeList">
+         <ul className = "ThemeList">
             {Tasking.map(Element => {
+                
                 return(
                 
-                <li className = "Theme">
+                <li key = {Element.id} className = {`Theme`}>
+                
                     <div className = "Circle" style = {{backgroundColor: Element.color}}></div>
                     <p>{Element.Name}</p>
                     <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
