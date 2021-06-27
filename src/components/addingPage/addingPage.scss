@@ -27,7 +27,6 @@
             height: 20px;
             width: 20px;
             border-radius: 50%;
-            background-color: blue;
             margin: 2.5px;
             cursor: pointer;
            
@@ -54,5 +53,9 @@
         cursor: pointer;
         
     }
+}
+
+.activeBTN{
+    transform: scale(1.3)
 }
 

@@ -9,6 +9,8 @@ const color = ["#C9D1D3", "#42B883", "#64C4ED", "#FFBBCC", "#B6E6BD", "#C355F5",
 
 const AddingPage = () => {
     const [ShowingModal, SetShowModal] = useState(false)
+    const [ActiveColor, SetActiveColor] = useState(null)
+    console.log(ActiveColor)
     
     return(
         <div className="addTheme">
@@ -21,6 +23,7 @@ const AddingPage = () => {
             </svg>
             <span>Добавить тему</span>
             </span>
+
     {/* -----------------------Modal block -----------------------*/}
         {ShowingModal && <div className = "addingPage">
             <input type="text" placeholder = "Название темы"/>
@@ -28,7 +31,7 @@ const AddingPage = () => {
                 {
                     color.map((element, index) =>{
                         return(
-                            <div key = {index} className="color-block-choise" style = {{background: element}}></div>
+                            <div onClick = { () => SetActiveColor(element)} key = {index} className = {ActiveColor === element? "color-block-choise activeBTN": "color-block-choise" } style = {{background: element}}></div>
                         )    
                     })
                 }

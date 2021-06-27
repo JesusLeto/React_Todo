@@ -1,7 +1,7 @@
 import React from 'react';
 import Menu from './menu';
 import Content from './content';
-import AddingPage from './addingPage/addingPage';
+
 
 const Page = () =>{
     return (

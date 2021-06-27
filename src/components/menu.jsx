@@ -1,23 +1,31 @@
-import React from 'react';
+import React, {useState} from 'react';
 import AddingPage from './addingPage/addingPage';
-import ThemeList from './ThemeList';
+import Task from './Task'
+
+
 
 let Tasking = [
     {
         id: 1,
-        active: false,
         Name: "Покупки",
         color: "green"
     },
     {   
         id: 2,
-        active: false,
         Name: "Фронтенд",
         color: "blue"
+    },
+    {
+        id: 3,
+        Name: "Книги",
+        color: "grey"
     },
 ]
 
 const Menu = () => {
+    const [ActiveTask, SetActiveTask] = useState(null)
+
+
     return(
         <div className = "Menu">
             <div className="Menu__wrapper">
@@ -26,7 +34,15 @@ const Menu = () => {
             </svg>
             <span className = "Menu__header">Все задачи</span>
             </div>
-            <ThemeList Tasking = {Tasking}/>
+            <ul className = "ThemeList">
+                {
+                    Tasking.map((Theme, index) =>{
+                        return (
+                        <Task OnClick = { () => SetActiveTask(Theme.id)} TaskObj = {Theme} activeClass = {ActiveTask === Theme.id ? "active": "" } key = {index}/>
+                        )
+                    })
+                }
+            </ul>
             <AddingPage />
         </div>
 )}
