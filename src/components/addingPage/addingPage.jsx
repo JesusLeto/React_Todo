@@ -8,9 +8,21 @@ const color = ["#C9D1D3", "#42B883", "#64C4ED", "#FFBBCC", "#B6E6BD", "#C355F5",
 
 
 const AddingPage = () => {
-    const [state, setstate] = useState(false)
+    const [ShowingModal, SetShowModal] = useState(false)
+    
     return(
-        <div className = "addingPage" style = {state ? {display: "block"}: {display: "none"}}>
+        <div className="addTheme">
+            <span style  = {{width: "100%"}} onClick = {
+                () => SetShowModal(true)
+            }>
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="null" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 1V11" stroke="#868686" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+            <path d="M1 6H11" stroke="#868686" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+            <span>Добавить тему</span>
+            </span>
+    {/* -----------------------Modal block -----------------------*/}
+        {ShowingModal && <div className = "addingPage">
             <input type="text" placeholder = "Название темы"/>
             <div className="color-block">
                 {
@@ -21,12 +33,11 @@ const AddingPage = () => {
                     })
                 }
             </div>
-            <button className = "addBTN" onClick>Добавить</button>
-            {/* <button className="closeBTN">X</button> */}
+            <button className = "addBTN">Добавить</button>
 
             <div className="closeBTN" onClick = {
                 () => {
-                    setstate(false);
+                    SetShowModal(false);
                 }
             }>
             <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -34,8 +45,9 @@ const AddingPage = () => {
             </svg>
 
             </div>
-        </div>
+        </div>}
 
+        </div>
         
     )
 }

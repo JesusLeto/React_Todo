@@ -1,4 +1,5 @@
 import React from 'react';
+import AddingPage from './addingPage/addingPage';
 import ThemeList from './ThemeList';
 
 let Tasking = [
@@ -26,16 +27,7 @@ const Menu = () => {
             <span className = "Menu__header">Все задачи</span>
             </div>
             <ThemeList Tasking = {Tasking}/>
-            
-
-            <div className="addTheme">
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="null" xmlns="http://www.w3.org/2000/svg">
-            <path d="M6 1V11" stroke="#868686" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-            <path d="M1 6H11" stroke="#868686" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-            <span>Добавить тему</span>
-            </div>
-            
+            <AddingPage />
         </div>
 )}
 
