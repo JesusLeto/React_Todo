@@ -1,16 +1,14 @@
 import React, {useState} from "react"
 import './addingPage.scss';
+import {color} from '../../../db.json'
 
 
-
-const color = ["#C9D1D3", "#42B883", "#64C4ED", "#FFBBCC", "#B6E6BD", "#C355F5", "#09011A", "#FF6464"]
-
-
-
-const AddingPage = () => {
+const AddingPage = ({AddTheme, Tasking}) => {
     const [ShowingModal, SetShowModal] = useState(false)
     const [ActiveColor, SetActiveColor] = useState(null)
-    console.log(ActiveColor)
+    const [InputValue, SetInputValue] = useState("")
+    
+    
     
     return(
         <div className="addTheme">
@@ -26,21 +24,46 @@ const AddingPage = () => {
 
     {/* -----------------------Modal block -----------------------*/}
         {ShowingModal && <div className = "addingPage">
-            <input type="text" placeholder = "Название темы"/>
+            <input value = {InputValue} onChange = {(e) => SetInputValue(e.target.value)} type="text" placeholder = "Название темы"/>
             <div className="color-block">
                 {
                     color.map((element, index) =>{
                         return(
-                            <div onClick = { () => SetActiveColor(element)} key = {index} className = {ActiveColor === element? "color-block-choise activeBTN": "color-block-choise" } style = {{background: element}}></div>
+                            <div onClick = { () => SetActiveColor(element.id)} key = {index} className = {ActiveColor === element.id ? "color-block-choise activeBTN": "color-block-choise" } style = {{background: element.hex}}></div>
                         )    
                     })
                 }
             </div>
-            <button className = "addBTN">Добавить</button>
+    {/* --------------Add new Task button---------------------- */}
+            <button onClick = { () => {
+                let Name = InputValue
+                let colorId = ActiveColor
+                let newId = 0
+                if(ActiveColor && InputValue){
+                    if(Tasking[Tasking.length - 1] === undefined){
+                        newId = 1
+                    }
+                    else{
+                        newId = Tasking[Tasking.length - 1].id + 1
+                    }    
+                    
+                    AddTheme({id:newId , Name, colorId})
+                    SetInputValue("")
+                }
+                else if(InputValue === ""){
+                    alert("Write some");
+                }
+                else{
+                    alert("Choice color");
+                }              
+                
+            }} className = "addBTN">Добавить</button>
 
             <div className="closeBTN" onClick = {
                 () => {
                     SetShowModal(false);
+                    SetInputValue("");
+                    SetActiveColor(null)
                 }
             }>
             <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -1,12 +1,12 @@
 import React from 'react';
-import Menu from './menu';
-import Content from './content';
+import Menu from './menu/menu';
+import Content from './content/content';
 
 
 const Page = () =>{
     return (
         <div className = "MainPage">
-            <Menu />
+            <Menu/>
             <Content />       
         </div>
     )

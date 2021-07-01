@@ -1,29 +1,17 @@
 import React, {useState} from 'react';
 import AddingPage from './addingPage/addingPage';
-import Task from './Task'
+import Themes from './Theme'
+import DB from '../../db.json'
 
 
 
-let Tasking = [
-    {
-        id: 1,
-        Name: "Покупки",
-        color: "green"
-    },
-    {   
-        id: 2,
-        Name: "Фронтенд",
-        color: "blue"
-    },
-    {
-        id: 3,
-        Name: "Книги",
-        color: "grey"
-    },
-]
+
 
 const Menu = () => {
     const [ActiveTask, SetActiveTask] = useState(null)
+    const [TaskingState, setTaskingState] = useState(DB.Tasking)
+    const [DeleteState, setDeleteState] = useState(null)
+    console.log(DeleteState)
 
 
     return(
@@ -36,14 +24,36 @@ const Menu = () => {
             </div>
             <ul className = "ThemeList">
                 {
-                    Tasking.map((Theme, index) =>{
-                        return (
-                        <Task OnClick = { () => SetActiveTask(Theme.id)} TaskObj = {Theme} activeClass = {ActiveTask === Theme.id ? "active": "" } key = {index}/>
-                        )
+                    TaskingState.map((Theme, index) =>{
+                        if(DeleteState === Theme.id){
+                            delete TaskingState.splice(index,1)
+                            setDeleteState(0)
+                            return null
+                        }
+                        else{
+                            return (
+                                <Themes OnClick = { () => SetActiveTask(Theme.id)} OnRemove = { () => {
+                                    setDeleteState(Theme.id)
+                                console.log("ADFAFASFASFAFSD",DeleteState)}
+                                } 
+                                ThemeObj = {(() => {
+                                    Theme.color = (DB.color.filter(color => color.id === Theme.colorId))[0].hex
+                                    return Theme
+                                })() } 
+                                activeClass = {ActiveTask === Theme.id ? "active": "" } key = {index}/>
+                                )
+                        }                       
                     })
                 }
+                
             </ul>
-            <AddingPage />
+
+            
+            <AddingPage AddTheme = {obj => {
+                const NewTasking = [...TaskingState, obj]
+                setTaskingState(NewTasking)
+            }} Tasking = {TaskingState}/>
+            
         </div>
 )}
 

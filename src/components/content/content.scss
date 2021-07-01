@@ -1,0 +1,38 @@
+.Content{
+    width: 546px;
+    padding-left: 57px;
+    padding-top: 56px;
+    .HeaderTask{
+        display: flex;
+        align-items: center;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 32px;
+        margin-bottom: 20px;
+        span{
+            margin-right: 14px
+        }
+    }
+    .line{
+        width: 420px;
+        height: 1px;
+        background-color: #F2F2F2;
+    }
+
+    .Task{
+        font-family: 'Lato', sans-serif;
+        width: 420px;
+        margin-top: 31px;
+        display: flex;
+        align-items: center;
+
+        .icon__Active{
+            display: flex;
+            align-items: center;
+        }
+        span{
+            font-size: 16px;
+            font-weight: 500;
+            margin-left: 15px
+        }
+    }
+}
