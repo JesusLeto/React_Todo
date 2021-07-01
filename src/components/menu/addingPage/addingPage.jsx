@@ -47,7 +47,7 @@ const AddingPage = ({AddTheme, Tasking}) => {
                         newId = Tasking[Tasking.length - 1].id + 1
                     }    
                     
-                    AddTheme({id:newId , Name, colorId})
+                    AddTheme({id:newId , Name, colorId, status: "active"})
                     SetInputValue("")
                 }
                 else if(InputValue === ""){

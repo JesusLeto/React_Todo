@@ -10,8 +10,9 @@ import DB from '../../db.json'
 const Menu = () => {
     const [ActiveTask, SetActiveTask] = useState(null)
     const [TaskingState, setTaskingState] = useState(DB.Tasking)
-    const [DeleteState, setDeleteState] = useState(null)
-    console.log(DeleteState)
+    const [DeleteState, setDeleteState] = useState(1)
+    console.log(TaskingState)
+
 
 
     return(
@@ -25,16 +26,14 @@ const Menu = () => {
             <ul className = "ThemeList">
                 {
                     TaskingState.map((Theme, index) =>{
-                        if(DeleteState === Theme.id){
-                            delete TaskingState.splice(index,1)
-                            setDeleteState(0)
+                        if(Theme.status === "remove"){
                             return null
                         }
                         else{
                             return (
-                                <Themes OnClick = { () => SetActiveTask(Theme.id)} OnRemove = { () => {
-                                    setDeleteState(Theme.id)
-                                console.log("ADFAFASFASFAFSD",DeleteState)}
+                                <Themes OnClick = { () => SetActiveTask(Theme.id)} OnRemove = { (obj) => {
+                                    obj.status = "remove"
+                                    setDeleteState(prevState => !prevState)}
                                 } 
                                 ThemeObj = {(() => {
                                     Theme.color = (DB.color.filter(color => color.id === Theme.colorId))[0].hex
@@ -52,6 +51,7 @@ const Menu = () => {
             <AddingPage AddTheme = {obj => {
                 const NewTasking = [...TaskingState, obj]
                 setTaskingState(NewTasking)
+                console.log("New Task List: ", TaskingState)
             }} Tasking = {TaskingState}/>
             
         </div>

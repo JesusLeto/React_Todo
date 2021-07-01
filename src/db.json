@@ -15,7 +15,19 @@
             "id": 1,
             "Name": "Покупки",
             "colorId": 2,
-            "active": true
+            "status": "active"
+        },
+        {
+            "id": 2,
+            "Name": "Игры",
+            "colorId": 5,
+            "status": "active"
+        },
+        {
+            "id": 3,
+            "Name": "Кино",
+            "colorId": 7,
+            "status": "active"
         }
     ]
 }
