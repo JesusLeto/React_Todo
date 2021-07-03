@@ -2,6 +2,69 @@
     width: 546px;
     padding-left: 57px;
     padding-top: 56px;
+    overflow-y: auto; 
+
+    .FullTask{
+        font-family: 'Lato', sans-serif;
+        &__interactive{
+            margin-top: 21px;
+            margin-bottom: 21px;
+        }
+        &__addNew{
+            margin-top: 41px;
+            padding: 5px;
+            padding-left: 0;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            width: 150px;
+            border-radius: 5px;
+            margin-top: 21px;
+            color: #B4B4B4;
+            font-size: 16px;
+            span{
+                    margin-left: 15px;
+                }
+        }
+        &__addNew:hover{
+            background-color: rgb(245, 241, 241);
+        }
+
+        &__input{
+            height: 38px;
+            width: 415px;
+            padding: 9px;
+            border-radius: 4px;
+            border: 1px solid #C7C7C7;
+            margin-bottom: 16px
+        }
+        &__BTN{
+            cursor: pointer;
+            height: 32px;
+            padding-top: 7px;
+            padding-bottom: 7px;
+            font-weight: 600px;
+            font-size: 14px;
+            margin-right: 9px;
+            border: none;
+            border-radius: 4px
+        }
+        &__addBTN{
+            width: 145px;
+            background-color: #4DD599;
+            color: white;
+
+        }
+
+        &__cancelBTN{
+            width: 90px;
+            background-color: #F4F6F8;
+            color: #9C9C9C;
+        }
+    }
+
+
+
     .HeaderTask{
         display: flex;
         align-items: center;
@@ -11,7 +74,17 @@
         span{
             margin-right: 14px
         }
+
+        svg{
+            display: none;
+        }
+        &:hover{
+            svg{
+                display: block;
+            }
+        }
     }
+
     .line{
         width: 420px;
         height: 1px;
@@ -19,7 +92,6 @@
     }
 
     .Task{
-        font-family: 'Lato', sans-serif;
         width: 420px;
         margin-top: 31px;
         display: flex;
