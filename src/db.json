@@ -35,10 +35,48 @@
   ],
   "Theme": [
     {
-      "Name": "JSON Server",
-      "colorId": 6,
+      "Name": "My code bad",
+      "colorId": 3,
       "status": "active",
       "id": 2
+    },
+    {
+      "Name": "New Theme",
+      "colorId": 2,
+      "status": "active",
+      "id": 3
+    },
+    {
+      "Name": "No optima",
+      "colorId": 6,
+      "status": "active",
+      "id": 4
+    }
+  ],
+  "Task": [
+    {
+      "ThemeId": 2,
+      "text": "ads",
+      "complited": false,
+      "id": 1
+    },
+    {
+      "ThemeId": 2,
+      "text": "ad",
+      "complited": false,
+      "id": 2
+    },
+    {
+      "ThemeId": 2,
+      "text": "asd",
+      "complited": false,
+      "id": 3
+    },
+    {
+      "ThemeId": 4,
+      "text": "das",
+      "complited": false,
+      "id": 4
     }
   ]
 }

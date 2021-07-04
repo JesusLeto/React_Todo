@@ -1,15 +1,26 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import "./content.scss"
-import DB from "../../db.json"
 import FullTask from "./FullTask"
+import axios from 'axios';
 
-const Content = ({ActiveId, AllActiveTheme}) => {
+const URL = "http://localhost:3001/Theme?_expand=color&_embed=Task"
+
+const Content = ({ActiveId, AllActiveTheme,ChangeHead}) => {
+    const [NewDB, setNewDB] = useState("");
+    const [AddingNewTask, setAddingNewTask] = useState(null)
+
+    useEffect(() => {
+        axios.get(URL).then(({data}) => setNewDB(data))
+    },[ActiveId,AddingNewTask])
+
+
     return(
         <div className = "Content">
-            {DB.Theme.map(Element =>{
+            {NewDB && NewDB.map(Element =>{
                 if(Element.id == ActiveId || AllActiveTheme )
                     return (
-                    <FullTask NameHeader = {Element.Name} ColorTask = {(DB.colors.filter(color => color.id === Element.colorId))[0].hex} key = {Element.id}/>
+                    <FullTask NameHeader = {Element.Name} ColorTask = {Element.color.hex} ThemeTaskList = {Element.Task} key = {Element.id} ThemeID ={Element.id}
+                    AddingNewTask = {obj => setAddingNewTask(obj)} ChangeHeader = {NewHeader => ChangeHead(NewHeader)}/>
                 )
             })}
             

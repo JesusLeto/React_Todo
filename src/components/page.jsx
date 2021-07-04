@@ -7,16 +7,16 @@ const Page = () =>{
 
     const [activeTheme, setactiveTheme] = useState(null)
     const [AllActiveTheme, setAllActiveTheme] = useState(false)
-    console.log(activeTheme)
+    const [NewHead, setNewHead] = useState("")
     return (
         <div className = "MainPage">
             <Menu GetActiveThemeId = {(Theme,AllActiveThemeProm) => {
                         setactiveTheme(Theme)
                         setAllActiveTheme(AllActiveThemeProm)
                         
-                    }} />
+                    }} NewHeader = {NewHead}/>
 
-            <Content ActiveId = {activeTheme} AllActiveTheme = {AllActiveTheme} />       
+            <Content ActiveId = {activeTheme} AllActiveTheme = {AllActiveTheme} ChangeHead = {NewHeader => setNewHead(NewHeader)}/>       
         </div>
     )
 }

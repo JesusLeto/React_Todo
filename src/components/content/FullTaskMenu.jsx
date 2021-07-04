@@ -22,7 +22,7 @@ const ShowIcon = param =>{
     }
 }
 
-const FullTaskMenu = () => {
+const FullTaskMenu = ({text}) => {
     const [CompliteIcon, setCompliteIcon] = useState(false)
     return(      
         <div className = "Task" onClick = {() => {
@@ -30,8 +30,7 @@ const FullTaskMenu = () => {
         }}>    
             {ShowIcon(CompliteIcon)}
 
-
-            <span className = "Text__Content"></span>
+            <span className = "Text__Content">{text}</span>
         </div>
     )
 }

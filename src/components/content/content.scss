@@ -63,8 +63,6 @@
         }
     }
 
-
-
     .HeaderTask{
         display: flex;
         align-items: center;
@@ -100,6 +98,7 @@
         .icon__Active{
             display: flex;
             align-items: center;
+            cursor: pointer;
         }
         span{
             font-size: 16px;
@@ -108,3 +107,28 @@
         }
     }
 }
+
+.FullTask__ChangeInput{
+    display: flex;
+    position: absolute;
+    top: 100px;
+    height: 0px;
+    input{
+        border: none;
+        transition: 1s border;
+        outline:none;
+    }
+    transition: 1s height;
+    button{
+        opacity: 0;
+    }
+}
+
+
+.FullTask__ChangeInput__Active{
+    height: 30px;
+    button{
+        opacity: 1;
+    }
+}
+

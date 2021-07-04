@@ -11,7 +11,7 @@ const AddingPage = ({AddTheme}) => {
     const [ColorList, SetColorList] = useState(null)
     
     useEffect(()=>{
-        axios.get('http://localhost:3002/colors').then(({data}) => {
+        axios.get('http://localhost:3001/colors').then(({data}) => {
             SetColorList(data) // Get color list from db
         })
     },[])
@@ -45,7 +45,7 @@ const AddingPage = ({AddTheme}) => {
     {/* --------------Add new Task button---------------------- */}
             <button onClick = { () => {
                 if(ActiveColor && InputValue){
-                    axios.post("http://localhost:3002/Theme", {Name : InputValue, colorId:ActiveColor, status: "active"})
+                    axios.post("http://localhost:3001/Theme", {Name : InputValue, colorId:ActiveColor, status: "active"})
                     .then(({data}) => AddTheme(data))
                     SetInputValue("") // clear input place         
                 }
